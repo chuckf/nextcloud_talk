@@ -1,0 +1,130 @@
+= Nextcloud
+Chuck Frain <chuck@chuckfrain.net>
+:backend: deckjs
+:navigation:
+:split:
+:toc: left
+// subs for this doc
+:nex: Nextcloud
+:nexv: 11.0.2
+:nexzip: nextcloud-{nexv}.zip
+:calug: Columbia Area Linux User Group
+:ca: CALUG
+
+== What is {nex}
+
+== Presentation Notes
+
+This presentation is not a replacement for the detailed instructions from {nex}.
+Downloads and documentation are available at https://nextcloud.com/install
+
+For the {nex} server installation we'll talk about and install {nex} {nexv}
+// ** We'll be using the {nexzip} file
+
+The demo system is running CentOS 7.3 with the following installed and configured:
+
+* Apache webserver
+* PHP 7 (5.6 or higher is required for {nex} 11.x)
+** Required php modules
+* MariaDB
+* Firewall ports 80 and 443 opened
+
+(See the appendix for details )
+
+== Server Installation
+
+. Download the {nexzip} file from the {nex} site.
+. Unzip the downloaded file using the command `unzip {nexzip} -d /var/www/html/`
+.. The files will be extracted to /var/www/html/nextcloud
+. Create or know the path to the data directory.
+For this example we will create and use `/var/www/html/nextcloud/data` (but is not recommended for production)
+. Change ownership of the Nextcloud directories to the web user and group with the command `chown -R apache:apache /var/www/html/nextcloud`
+. Modify the selinux permissions of the directories (see appendix)
+. Navigate to the server with your web browser `https://<host or ip>/nextcloud` to complete the Installation Wizard
+
+<<<<
+
+image::images/nextcloud_setup_screen.png[]
+
+Select the appropriate options an click the `Finish setup` button to complete
+//demo
+
+<<<<
+
+image::images/nextcloud_initial_login.png[]
+
+== Demo Interface
+
+*Demo Time!*
+
+== Clients
+
+Clients are available for all major platforms
+
+* Desktop
+** Linux
+** MacOs/OS X
+** Windows
+* Android
+* iOS
+
+//demo
+
+== Other ways to access files and data
+
+* WebDAV
+* Web interface
+* Calendar Data
+** CalDAV
+* Contacts
+** CardDAV
+
+== Other options for getting started
+
+* Preinstalled hardware
+* Docker
+* Virtual Machine
+* Hosted Website
+
+== Features
+
+* Federation
+* Encryption
+* Various Authentication Methods
+** LDAP
+** Kerberos
+** SSO/SAML
+** Dual Factor (U2F/TOTP)
+
+<<<<
+
+* Apps
+** Collabora Online
+** News (RSS Reader)
+** Mail Client (IMAP/SMTP)
+** Notes
+** Tasks
+** Keeweb (Keepass Client)
+** SMS Sync
+** Video Calls
+
+== External Access
+
+* VPN (secure)
+* Port Forwarding (insecure)
+
+== Resources
+
+*Links to this presentation*
+
+[cols=2*^,options="header"]
+|===
+|html |github
+|https://goo.gl/A9zh2c |https://github.com/chuckf/nextcloud_talk
+a|image::images/pres_html.png[]
+// a|image::images/pres_slides.png[]
+a|image::images/github.png[]
+|===
+
+
+== Appendix

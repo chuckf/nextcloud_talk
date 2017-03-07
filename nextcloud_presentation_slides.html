@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.5" name="generator">
+<meta content="Chuck Frain" name="author">
+<title>Nextcloud</title>
+<link href="deck.js/core/deck.core.css" rel="stylesheet">
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href="deck.js/extensions/toc/deck.toc.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/style/web-2.0.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Nextcloud</h1>
+<span id="author">Chuck Frain</span>
+<br>
+<span id="email"><a href="mailto:chuck@chuckfrain.net">chuck@chuckfrain.net</a></span>
+<br>
+</section>
+<section class="slide" id="_what_is_nextcloud">
+<h2>What is Nextcloud</h2>
+
+</section>
+<section class="slide" id="_presentation_notes">
+<h2>Presentation Notes</h2>
+<div class="paragraph"><p>This presentation is not a replacement for the detailed instructions from Nextcloud.
+Downloads and documentation are available at <a class="bare" href="https://nextcloud.com/install">https://nextcloud.com/install</a></p></div>
+<div class="paragraph"><p>For the Nextcloud server installation we&#8217;ll talk about and install Nextcloud 11.0.2</p></div>
+<div class="paragraph"><p>The demo system is a CentOS system with the following installed and configured:</p></div>
+<div class="ulist">
+<ul>
+<li>Apache webserver</li>
+<li><p>
+PHP 7 (5.6 or higher is required for Nextcloud 11.x)<div class="ulist">
+<ul>
+<li>Required php modules</li>
+</ul>
+</div></p></li>
+<li>MariaDB</li>
+<li>Firewall ports 80 and 443 opened</li>
+</ul>
+</div>
+<div class="paragraph"><p>(See the appendix for details )</p></div>
+</section>
+<section class="slide" id="_server_installation">
+<h2>Server Installation</h2>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+Download the nextcloud-11.0.2.zip file from the Nextcloud site.
+</li>
+<li>
+<p>Unzip the downloaded file using the command <code>unzip nextcloud-11.0.2.zip -d /var/www/html/</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+The files will be extracted to /var/www/html/nextcloud
+</li>
+</ol>
+</div>
+</li>
+<li>
+Create or know the path to the data directory.
+For this example we will create and use <code>/var/www/html/nextcloud/data</code> (but is not recommended for production)
+</li>
+<li>
+Change ownership of the Nextcloud directories to the web user and group with the command <code>chown -R apache:apache /var/www/html/nextcloud</code>
+</li>
+<li>
+Modify the selinux permissions of the directories (see appendix)
+</li>
+<li>
+Navigate to the server with your web browser <code><a class="bare" href="https://&lt;host">https://&lt;host</a> or ip&gt;/nextcloud</code> to complete the Installation Wizard
+</li>
+</ol>
+</div>
+<div style="page-break-after: always"></div>
+<div class="imageblock">
+<div class="content">
+<img alt="nextcloud setup screen" src="images/nextcloud_setup_screen.png">
+</div>
+</div>
+<div class="paragraph"><p>Select the appropriate options an click the <code>Finish setup</code> button to complete</p></div>
+<div style="page-break-after: always"></div>
+<div class="imageblock">
+<div class="content">
+<img alt="nextcloud initial login" src="images/nextcloud_initial_login.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_demo_interface">
+<h2>Demo Interface</h2>
+<div class="paragraph"><p><strong>Demo Time!</strong></p></div>
+</section>
+<section class="slide" id="_clients">
+<h2>Clients</h2>
+<div class="paragraph"><p>Clients are available for all major platforms</p></div>
+<div class="ulist">
+<ul>
+<li><p>
+Desktop<div class="ulist">
+<ul>
+<li>Linux</li>
+<li>MacOs/OS X</li>
+<li>Windows</li>
+</ul>
+</div></p></li>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_other_ways_to_access_files_and_data">
+<h2>Other ways to access files and data</h2>
+<div class="ulist">
+<ul>
+<li>WebDAV</li>
+<li>Web interface</li>
+<li><p>
+Calendar Data<div class="ulist">
+<ul>
+<li>CalDAV</li>
+</ul>
+</div></p></li>
+<li><p>
+Contacts<div class="ulist">
+<ul>
+<li>CardDAV</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_other_options_for_getting_started">
+<h2>Other options for getting started</h2>
+<div class="ulist">
+<ul>
+<li>Preinstalled hardware</li>
+<li>Docker</li>
+<li>Virtual Machine</li>
+<li>Hosted Website</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_features">
+<h2>Features</h2>
+<div class="ulist">
+<ul>
+<li>Federation</li>
+<li>Encryption</li>
+<li><p>
+Various Authentication Methods<div class="ulist">
+<ul>
+<li>LDAP</li>
+<li>Kerberos</li>
+<li>SSO/SAML</li>
+<li>Dual Factor (U2F/TOTP)</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li><p>
+Apps<div class="ulist">
+<ul>
+<li>Collabora Online</li>
+<li>News (RSS Reader)</li>
+<li>Mail Client (IMAP/SMTP)</li>
+<li>Notes</li>
+<li>Tasks</li>
+<li>Keeweb (Keepass Client)</li>
+<li>SMS Sync</li>
+<li>Video Calls</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_external_access">
+<h2>External Access</h2>
+<div class="ulist">
+<ul>
+<li>VPN (secure)</li>
+<li>Port Forwarding (insecure)</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_appendix">
+<h2>Appendix</h2>
+
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="deck.js/extensions/split/deck.split.js"></script>
+<script src="deck.js/extensions/toc/deck.toc.js"></script>
+<div class="deck-toc"></div>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
