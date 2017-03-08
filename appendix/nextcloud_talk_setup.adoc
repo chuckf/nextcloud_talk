@@ -1,4 +1,4 @@
-=== CentOS Installs
+== CentOS Installs
 
 [source]
 ----

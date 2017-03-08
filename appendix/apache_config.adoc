@@ -1,4 +1,4 @@
-=== Apache Config
+== Apache Config
 
 Create a file with the following contents in `/etc/httpd/conf.d/nextcloud.conf`
 
