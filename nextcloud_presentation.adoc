@@ -112,6 +112,8 @@ Clients are available for all major platforms
 ** SMS Sync
 ** Video Calls
 
+More information at https://nextcloud.com/
+
 == External Access
 
 * VPN (Secure)
