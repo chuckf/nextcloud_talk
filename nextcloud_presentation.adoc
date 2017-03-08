@@ -132,7 +132,9 @@ a|image::images/github.png[]
 |===
 
 
-//== Appendix
+== Appendix
 
-//include::appendix/apache_config.adoc[]
-//include::appendix/permissions[]
+include::appendix/apache_config.adoc[]
+include::appendix/permissions.adoc[]
+include::appendix/nextcloud_talk_setup.adoc[]
+include::appendix/mysql_config.adoc[]
