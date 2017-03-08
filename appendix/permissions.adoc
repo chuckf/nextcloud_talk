@@ -1,0 +1,18 @@
+=== Permissions
+
+Change the permissions of the Nextcloud web directory to:
+`chown -R apache:apache /var/www/html/nextcloud/`
+
+Modify the selinux permissions for the Nextcloud directories:
+
+[source]
+----
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/data'
+restorecon '/var/www/html/nextcloud/data'
+
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/config'
+restorecon '/var/www/html/nextcloud/config'
+
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/apps'
+restorecon '/var/www/html/nextcloud/apps'
+----

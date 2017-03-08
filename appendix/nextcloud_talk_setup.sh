@@ -1,0 +1,13 @@
+#!/bin/bash
+# This is written for a CentOS-7 demo system.
+# Use at your own risk in production.
+# This section downloads and install OS packages
+# Downloads Nextcloud, but does not install the zip file
+sudo yum update -y
+sudo yum install wget epel-release yum-utils -y
+sudo wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo wget https://download.nextcloud.com/server/releases/nextcloud-11.0.2.zip
+sudo yum install ./remi-release-7.rpm -y
+sudo yum-config-manager --enable remi-php70 -y
+sudo yum install vim httpd mod_ssl unzip mariadb-server php -y
+sudo yum install php-mbstring php-dom php-gd php-posix php-simplexml php-xmlwriter php-zip php-pdo_mysql php-curl -y
