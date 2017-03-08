@@ -232,6 +232,84 @@ Apps<div class="ulist">
 </tbody>
 </table>
 </section>
+<section class="slide" id="_appendix">
+<h2>Appendix</h2>
+<section class="slide" id="_apache_config">
+<h2>Apache Config</h2>
+<div class="paragraph"><p>Create a file with the following contents in <code>/etc/httpd/conf.d/nextcloud.conf</code></p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Alias /nextcloud "/var/www/html/nextcloud/"
+
+&lt;Directory /var/www/html/nextcloud/&gt;
+  Options +FollowSymlinks
+  AllowOverride All
+
+ &lt;IfModule mod_dav.c&gt;
+  Dav off
+ &lt;/IfModule&gt;
+
+ SetEnv HOME /var/www/html/nextcloud
+ SetEnv HTTP_HOME /var/www/html/nextcloud
+
+&lt;/Directory&gt;</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_permissions">
+<h2>Permissions</h2>
+<div class="paragraph"><p>Change the permissions of the Nextcloud web directory to:
+<code>chown -R apache:apache /var/www/html/nextcloud/</code></p></div>
+<div class="paragraph"><p>Modify the selinux permissions for the Nextcloud directories:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/data'
+restorecon '/var/www/html/nextcloud/data'
+
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/config'
+restorecon '/var/www/html/nextcloud/config'
+
+semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/nextcloud/apps'
+restorecon '/var/www/html/nextcloud/apps'</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_centos_installs">
+<h2>CentOS Installs</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>#!/bin/bash
+# This is written for a CentOS-7 demo system.
+# Use at your own risk in production.
+# This section downloads and install OS packages
+# Downloads Nextcloud, but does not install the zip file
+sudo yum update -y
+sudo yum install wget epel-release yum-utils -y
+sudo wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum install ./remi-release-7.rpm -y
+sudo yum-config-manager --enable remi-php70 -y
+sudo wget https://download.nextcloud.com/server/releases/nextcloud-11.0.2.zip
+sudo yum install vim httpd mod_ssl unzip mariadb-server php -y
+sudo yum install php-mbstring php-dom php-gd php-posix php-simplexml php-xmlwriter php-zip php-pdo_mysql php-curl -y</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_mysql_configurations">
+<h2>MySQL configurations</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>sudo systemctl enable mariadb
+sudo systemctl start mariadb
+sudo mysql_secure_installation
+mysql -u root -p
+CREATE USER 'nextcloud'@'localhost' IDENTIFIED BY 'password';
+CREATE DATABASE IF NOT EXISTS nextcloud;
+GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost' IDENTIFIED BY 'password';
+quit</code></pre>
+</div>
+</div>
+</section>
+</section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
 <a class="deck-next-link" href="#" title="Next">&#8594;</a>

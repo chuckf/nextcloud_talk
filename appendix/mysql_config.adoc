@@ -1,6 +1,6 @@
 === MySQL configurations
 
-[souce]
+[source]
 ----
 sudo systemctl enable mariadb
 sudo systemctl start mariadb
