@@ -122,7 +122,9 @@ More information at https://nextcloud.com/
 == Resources
 
 https://nextcloud.com
+
 https://nextcloud.com/install/
+
 https://nextcloud.com/collaboraonline/
 
 *Links to this presentation*
