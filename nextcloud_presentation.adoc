@@ -43,7 +43,7 @@ The demo system is running CentOS 7.3 with the following installed and configure
 For this example we will create and use `/var/www/html/nextcloud/data` (but is not recommended for production)
 . Change ownership of the Nextcloud directories to the web user and group with the command `chown -R apache:apache /var/www/html/nextcloud`
 . Modify the selinux permissions of the directories (see appendix)
-. Navigate to the server with your web browser `https://<host or ip>/nextcloud` to complete the Installation Wizard
+. Navigate to the server with your web browser `\https://<host or ip>/nextcloud` to complete the Installation Wizard
 
 <<<<
 
