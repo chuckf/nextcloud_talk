@@ -81,8 +81,8 @@ Clients are available for all major platforms
 
 == Other options for getting started
 
-* Preinstalled hardware
-* Docker
+* Nextcloud Appliance
+* Docker image
 * Virtual Machine
 * Hosted Website
 
@@ -90,6 +90,7 @@ Clients are available for all major platforms
 
 * Federation
 * Encryption
+* Full text search
 * Various Authentication Methods
 ** LDAP
 ** Kerberos
@@ -110,10 +111,14 @@ Clients are available for all major platforms
 
 == External Access
 
-* VPN (secure)
-* Port Forwarding (insecure)
+* VPN (Secure)
+* DMZ/Port Forwarding (Less Secure)
 
 == Resources
+
+https://nextcloud.com
+https://nextcloud.com/install/
+https://nextcloud.com/collaboraonline/
 
 *Links to this presentation*
 
@@ -127,4 +132,7 @@ a|image::images/github.png[]
 |===
 
 
-== Appendix
+//== Appendix
+
+//include::appendix/apache_config.adoc[]
+//include::appendix/permissions[]
