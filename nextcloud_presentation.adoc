@@ -11,7 +11,10 @@ Chuck Frain <chuck@chuckfrain.net>
 :calug: Columbia Area Linux User Group
 :ca: CALUG
 
-== What is {nex}
+[discreet]
+== Why {nex}?
+
+image::images/cloud_others_computer.jpg[]
 
 == Presentation Notes
 
