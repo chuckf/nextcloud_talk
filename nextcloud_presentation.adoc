@@ -6,7 +6,7 @@ Chuck Frain <chuck@chuckfrain.net>
 :toc: left
 // subs for this doc
 :nex: Nextcloud
-:nexv: 11.0.2
+:nexv: 12.0.0
 :nexzip: nextcloud-{nexv}.zip
 :calug: Columbia Area Linux User Group
 :ca: CALUG
@@ -27,7 +27,7 @@ For the {nex} server installation we'll talk about and install {nex} {nexv}
 The demo system is running CentOS 7.3 with the following installed and configured:
 
 * Apache webserver
-* PHP 7 (5.6 or higher is required for {nex} 11.x)
+* PHP 7 (5.6 or higher is required for {nex} 11.x and higher)
 ** Required php modules
 * MariaDB
 * Firewall ports 80 and 443 opened
@@ -49,7 +49,7 @@ For this example we will create and use `/var/www/html/nextcloud/data` (but is n
 
 image::images/nextcloud_setup_screen.png[]
 
-Select the appropriate options an click the `Finish setup` button to complete
+Select the appropriate options and click the `Finish setup` button to complete
 //demo
 
 <<<<
@@ -141,7 +141,7 @@ a|image::images/github.png[]
 
 == Appendix
 
+include::appendix/nextcloud_talk_setup.adoc[]
 include::appendix/apache_config.adoc[]
 include::appendix/permissions.adoc[]
-include::appendix/nextcloud_talk_setup.adoc[]
 include::appendix/mysql_config.adoc[]

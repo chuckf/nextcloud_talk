@@ -1,4 +1,4 @@
-== Permissions
+=== Permissions
 
 Change the permissions of the Nextcloud web directory to:
 `chown -R apache:apache /var/www/html/nextcloud/`

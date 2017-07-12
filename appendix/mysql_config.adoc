@@ -1,5 +1,8 @@
-== MySQL configurations
+=== MySQL configurations
 
+These settings are for demo purposes only!
+
+They are not to be considered secure.
 [source]
 ----
 sudo systemctl enable mariadb
